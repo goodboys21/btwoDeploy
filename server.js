@@ -8,8 +8,7 @@ app.use(bodyParser.json());
 // === CONFIG ===
 const CLOUDFLARE_API = "https://api.cloudflare.com/client/v4";
 const CLOUDFLARE_ZONE_ID = "3618b748426c0ab404a74d3f44a1d79f"; 
-const CLOUDFLARE_API_KEY = "h2Mv29fCFsGJSmXsZOGIVBNdAE0NKnjNNEkwBY8a";
-const CLOUDFLARE_EMAIL = "jumbo.branch_0l@hidmail.org";
+const CLOUDFLARE_API_KEY = "h2Mv29fCFsGJSmXsZOGIVBNdAE0NKnjNNEkwBY8a"; // API Token
 
 const JSONBLOB_URL = "https://jsonblob.com/api/jsonBlob/1410617869905092608"; 
 const TELEGRAM_TOKEN = "7964560249:AAF78QqL2JveR3LvAqkS42c35WSMljAQqa4";
@@ -62,8 +61,7 @@ app.post("/create", async (req, res) => {
       },
       {
         headers: {
-          "X-Auth-Email": CLOUDFLARE_EMAIL,
-          "X-Auth-Key": CLOUDFLARE_API_KEY,
+          "Authorization": `Bearer ${CLOUDFLARE_API_KEY}`,
           "Content-Type": "application/json"
         }
       }
@@ -92,8 +90,8 @@ app.post("/create", async (req, res) => {
 
     res.json({ success: true, data: result.data.result });
   } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.status(500).json({ error: "Error create record" });
+    console.error("Cloudflare Error:", err.response?.data || err.message);
+    res.status(500).json({ error: "Error create record", detail: err.response?.data || err.message });
   }
 });
 
@@ -105,8 +103,7 @@ app.delete("/delete/:id", async (req, res) => {
       `${CLOUDFLARE_API}/zones/${CLOUDFLARE_ZONE_ID}/dns_records/${id}`,
       {
         headers: {
-          "X-Auth-Email": CLOUDFLARE_EMAIL,
-          "X-Auth-Key": CLOUDFLARE_API_KEY,
+          "Authorization": `Bearer ${CLOUDFLARE_API_KEY}`,
           "Content-Type": "application/json"
         }
       }
@@ -128,8 +125,8 @@ app.delete("/delete/:id", async (req, res) => {
 
     res.json({ success: true });
   } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.status(500).json({ error: "Error delete record" });
+    console.error("Cloudflare Error:", err.response?.data || err.message);
+    res.status(500).json({ error: "Error delete record", detail: err.response?.data || err.message });
   }
 });
 
