@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 // === CONFIG ===
 const CLOUDFLARE_API = "https://api.cloudflare.com/client/v4";
 const CLOUDFLARE_ZONE_ID = "3618b748426c0ab404a74d3f44a1d79f"; 
-const CLOUDFLARE_API_KEY = "roqIJzfFFY5NZlokqvdC5a4xbyHyQNLOapHJKOCE";
+const CLOUDFLARE_API_KEY = "h2Mv29fCFsGJSmXsZOGIVBNdAE0NKnjNNEkwBY8a";
 const CLOUDFLARE_EMAIL = "jumbo.branch_0l@hidmail.org";
 
 const JSONBLOB_URL = "https://jsonblob.com/api/jsonBlob/1410617869905092608"; 
