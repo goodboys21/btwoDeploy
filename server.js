@@ -5,15 +5,15 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
 
-// === CONFIG (langsung tanpa .env) ===
+// === CONFIG ===
 const CLOUDFLARE_API = "https://api.cloudflare.com/client/v4";
 const CLOUDFLARE_ZONE_ID = "3618b748426c0ab404a74d3f44a1d79f"; 
 const CLOUDFLARE_API_KEY = "roqIJzfFFY5NZlokqvdC5a4xbyHyQNLOapHJKOCE";
 const CLOUDFLARE_EMAIL = "jumbo.branch_0l@hidmail.org";
 
-const JSONBLOB_URL = "https://jsonblob.com/api/jsonBlob/1410617869905092608"; // simpan record
+const JSONBLOB_URL = "https://jsonblob.com/api/jsonBlob/1410617869905092608"; 
 const TELEGRAM_TOKEN = "7964560249:AAF78QqL2JveR3LvAqkS42c35WSMljAQqa4";
-const OWNER_ID = "7081489041"; // chat id owner
+const OWNER_ID = "7081489041";
 
 // === Helper Telegram ===
 async function sendTelegram(message) {
@@ -139,5 +139,5 @@ app.get("/records", async (req, res) => {
   res.json(records);
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log("Server running di port " + PORT));
+// === Export untuk Vercel ===
+module.exports = app;
