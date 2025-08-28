@@ -1,9 +1,11 @@
 const express = require("express");
 const axios = require("axios");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // === CONFIG ===
 const CLOUDFLARE_API = "https://api.cloudflare.com/client/v4";
