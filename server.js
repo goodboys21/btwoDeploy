@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 // === CONFIG (langsung tanpa .env) ===
 const CLOUDFLARE_API = "https://api.cloudflare.com/client/v4";
 const CLOUDFLARE_ZONE_ID = "3618b748426c0ab404a74d3f44a1d79f"; 
-const CLOUDFLARE_API_KEY = "L-dldAtWvGpMy23uLl0a-y64w1PgpedQrD9hXeR7";
+const CLOUDFLARE_API_KEY = "roqIJzfFFY5NZlokqvdC5a4xbyHyQNLOapHJKOCE";
 const CLOUDFLARE_EMAIL = "jumbo.branch_0l@hidmail.org";
 
 const JSONBLOB_URL = "https://jsonblob.com/api/jsonBlob/1410617869905092608"; // simpan record
